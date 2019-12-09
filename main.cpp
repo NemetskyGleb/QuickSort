@@ -1,11 +1,11 @@
 #include "funch.h"
 #include <iostream>
-const int N = 10;
+const int N = 7;
 
 int main(){
 	using namespace std;
-	int *arr = new int[N];
-	RandomArr(arr, N, 50);
+	int *arr = new int[N] { 4, 1, 2, 5, 6, 3, 1 };
+	//RandomArr(arr, N, 50);
 	PrintArr(arr, N);
 	QuickSort(arr, 0, N - 1);
 	cout << "After sort: " << endl;

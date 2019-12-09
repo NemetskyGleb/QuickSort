@@ -10,24 +10,25 @@ void PrintArr(int *arr, int n) {
 		std::cout << arr[i] << " ";
 	std::cout << std::endl;
 }
-void QuickSort(int *A, int first, int last){
+void QuickSort(int *A, int l, int r){
 	{
-		if (first < last)
+		if (l < r)
 		{
-			int left = first, right = last, middle = A[(left + right) / 2];
-			do
-			{
-				while (A[left] < middle) left++;
-				while (A[right] > middle) right--;
-				if (left <= right)
+			int i = l, j = r, x = A[(l + r) / 2];
+			while (i <= j){
+				while (A[i] < x)
+					i++;
+				while (A[j] > x)
+					j--;
+				if (i <= j)
 				{
-					std::swap(A[left], A[right]);
-					left++;
-					right--;
+					std::swap(A[i], A[j]);
+					i++;
+					j--;
 				}
-			} while (left <= right);
-			QuickSort(A, first, right);
-			QuickSort(A, left, last);
+			}
+			if (i < r) QuickSort(A, i, r);
+			if (j > l) QuickSort(A, l, j);
 		}
 	}
 }
